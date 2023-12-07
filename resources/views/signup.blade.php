@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-signin-client_id" content="" />
+    <meta name="facebook-domain-verification" content="mat5ybp55tf7qbx31hb214p7rcfn6a" />
     <link rel="stylesheet" href="{{ url('assest/style.css') }}" />
 </head>
 

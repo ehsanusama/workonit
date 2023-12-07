@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="facebook-domain-verification" content="mat5ybp55tf7qbx31hb214p7rcfn6a" />
     <script src="https://kit.fontawesome.com/391827d54c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url('assest/style1.css') }}" />
     <title>Whatsapp Clone</title>
@@ -53,9 +54,12 @@
 
             <!--chats -->
             <div class="chat-list">
-                <div class="chat-box" title="https://www.uchat.com.au/js/widget/ve4cwaxxkhqj6ivg/embed.js?id=embed_chatbot_container_id">
+                <div class="chat-box"
+                    title="https://www.uchat.com.au/js/widget/ve4cwaxxkhqj6ivg/embed.js?id=embed_chatbot_container_id">
                     <div class="img-box">
-                        <img class="img-cover" src="https://lh5.googleusercontent.com/-7ssjf_mDE1Q/AAAAAAAAAAI/AAAAAAAAASo/tioYx2oklWEHoo5nAEyCT-KeLxYqE5PuQCLcDEAE/s100-c-k-no-mo/photo.jpg" alt="">
+                        <img class="img-cover"
+                            src="https://lh5.googleusercontent.com/-7ssjf_mDE1Q/AAAAAAAAAAI/AAAAAAAAASo/tioYx2oklWEHoo5nAEyCT-KeLxYqE5PuQCLcDEAE/s100-c-k-no-mo/photo.jpg"
+                            alt="">
                     </div>
                     <div class="chat-details">
                         <div class="text-head">
@@ -75,7 +79,9 @@
             <div class="header">
                 <div class="img-text">
                     <div class="user-img user-pic" style="display: none">
-                        <img class="dp" src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                        <img class="dp"
+                            src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="">
                     </div>
                     <h4><span id="heading-text"></span><br><span></span></h4>
                 </div>
