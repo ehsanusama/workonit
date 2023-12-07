@@ -3,6 +3,8 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\GroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +30,8 @@ Route::get('/logout', [DashboardController::class, "logout"]);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, "index"]);
+    Route::get('/chatbot', [ChatbotController::class, "index"]);
 });
+Route::get('/groups/{id}', [GroupController::class, 'getById']);
+Route::get('/groups/name/{name}', [GroupController::class, 'getByName']);
+Route::get('/groups', [GroupController::class, 'getAll']);

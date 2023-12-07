@@ -53,12 +53,9 @@
 
             <!--chats -->
             <div class="chat-list">
-                <div class="chat-box"
-                    title="https://www.uchat.com.au/js/widget/ve4cwaxxkhqj6ivg/embed.js?id=embed_chatbot_container_id">
+                <div class="chat-box" title="https://www.uchat.com.au/js/widget/ve4cwaxxkhqj6ivg/embed.js?id=embed_chatbot_container_id">
                     <div class="img-box">
-                        <img class="img-cover"
-                            src="https://lh5.googleusercontent.com/-7ssjf_mDE1Q/AAAAAAAAAAI/AAAAAAAAASo/tioYx2oklWEHoo5nAEyCT-KeLxYqE5PuQCLcDEAE/s100-c-k-no-mo/photo.jpg"
-                            alt="">
+                        <img class="img-cover" src="https://lh5.googleusercontent.com/-7ssjf_mDE1Q/AAAAAAAAAAI/AAAAAAAAASo/tioYx2oklWEHoo5nAEyCT-KeLxYqE5PuQCLcDEAE/s100-c-k-no-mo/photo.jpg" alt="">
                     </div>
                     <div class="chat-details">
                         <div class="text-head">
@@ -71,35 +68,26 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-
-
-
-
         <div class="right-container">
             <!--header -->
             <div class="header">
                 <div class="img-text">
-                    <div class="user-img">
-                        <img class="dp"
-                            src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            alt="">
+                    <div class="user-img user-pic" style="display: none">
+                        <img class="dp" src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                     </div>
-                    <h4><span id="heading-text">LEO</span><br><span>Online</span></h4>
+                    <h4><span id="heading-text"></span><br><span></span></h4>
                 </div>
-                <div class="nav-icons">
+                {{-- <div class="nav-icons">
                     <li><i class="fa-solid fa-magnifying-glass"></i></li>
                     <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-                </div>
+                </div> --}}
             </div>
 
             <!--chat-container -->
-            <div class="chat-container" style="padding: 0px !important;">
-                <div id="embed_chatbot_container_id" style="height: 700px"></div>
+            <div class="chat-container" style="padding: 0px !important;height: 462px">
+                <div id="embed_chatbot_container_id" style="height: 462px"></div>
 
             </div>
 
@@ -119,7 +107,19 @@
                     var txt = $(this).find('.chat-details').find(".text-head").find('h4').text()
                     console.log(txt)
                     $("#heading-text").html(txt)
-                    $(".chat-container").load($.getScript($(this).attr('title')))
+                    $('.user-pic').show()
+                    // $("#script_load").attr('src', 'chatbot.blade.php')
+                    var scriptSrc = "{{ url('/chatbot') }}";
+                    // Create an iframe element
+                    var iframe = $("<iframe>")
+                        .attr("src", scriptSrc)
+                        .attr("width", "100%") // Set width as needed
+                        .attr("height", "462px") // Set height as needed
+                        .attr("frameborder", "0")
+                        .attr("scrolling", "off");
+                    // Append the iframe to a container in the HTML (e.g., a div with id "iframe-container")
+                    $("#embed_chatbot_container_id").append(iframe);
+                    //$(".chat-container").load($.getScript($(this).attr('title')))
                 })
             })
         </script>
