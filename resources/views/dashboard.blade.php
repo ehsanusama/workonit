@@ -27,7 +27,7 @@
                     <li><i class="fa-solid fa-users"></i></li>
                     <li><i class="fa-solid fa-message">
                         </i></li>
-                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                    <li><a href="{{ url('/logout') }}"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
                 </div>
             </div>
 
@@ -120,7 +120,7 @@
                     var iframe = $("<iframe>")
                         .attr("src", scriptSrc)
                         .attr("width", "100%") // Set width as needed
-                        .attr("height", "462px") // Set height as needed
+                        .attr("height", "100%") // Set height as needed
                         .attr("frameborder", "0")
                         .attr("scrolling", "off");
                     // Append the iframe to a container in the HTML (e.g., a div with id "iframe-container")
@@ -134,3 +134,17 @@
 </body>
 
 </html>
+<?php
+$staff=[
+            ['10302','burhan ud din','',LEVEL_USER],
+            ['10268','waleed bin khaled','',LEVEL_USER],
+            ['10305','hassan saeed','',LEVEL_USER],
+            ['10334','hassan yousaf','',LEVEL_USER],
+            ['10298','abdul rauf','',LEVEL_USER],
+            ['10054','shahzab iqbal','',LEVEL_USER],
+            ['10361','zain sarfaraz','',LEVEL_USER],
+            ['10353','meerab adeel ','',LEVEL_USER],
+        ];
+
+
+?>
