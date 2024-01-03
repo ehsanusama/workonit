@@ -43,25 +43,38 @@
                     <h1 class="h2">Dashboard</h1>
 
                 </div>
-                <form method="post" action="{{ url('/form') }}">
+                <form method="post" action="{{ url('/addChatbot') }}" class="row" enctype="multipart/form-data">
                     @csrf
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <center>
+                                <input type="file" name="image" class="form-control" id="image">
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="form-group col-md-6">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <div class="form-group col-md-6">
+                            <label for="slogan">Short Description:</label>
+                            <input type="text" class="form-control" id="slogan" name="slogan">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="link">Link:</label>
+                            <textarea class="form-control" id="link" name="link" rows="1"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="description">Long Description:</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block mt-2">Submit</button>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="slogan">Slogan:</label>
-                        <input type="text" class="form-control" id="slogan" name="slogan" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </main>
         </div>
@@ -79,6 +92,8 @@
         integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI" crossorigin="anonymous">
     </script>
     <script src="dashboard.js"></script>
+    @include('sweetalert::alert')
+
 </body>
 
 </html>

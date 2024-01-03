@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chatbots;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $threads = Chatbots::all();
+        $data = compact('threads');
+        return view('dashboard')->with($data);
     }
 
     /**

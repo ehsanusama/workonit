@@ -46,7 +46,8 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Slogan</th>
                             <th>Description</th>
@@ -57,10 +58,16 @@
                         @foreach ($forms as $form)
                             <tr>
                                 <td>{{ $form->id }}</td>
+                                <td>
+                                    <img src="{{ asset('storage/images/' . $form->image) }}" alt=""
+                                        style="width: 50px;height:50px">
+                                </td>
+
                                 <td>{{ $form->name }}</td>
                                 <td>{{ $form->slogan }}</td>
                                 <td>{{ $form->description }}</td>
-                                <td><a href="{{ url('/manageChatbot/delete/' . $form->id) }}" class="btn btn-danger"
+                                <td><a href="{{ url('/manageChatbot/delete/' . $form->id) }}"
+                                        class="btn btn-danger btn-sm"
                                         onclick="return confirm('Are you sure?')">Delete</a></td>
                             </tr>
                         @endforeach
