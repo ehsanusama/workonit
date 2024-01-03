@@ -20,9 +20,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('/addAdmin') }}">
                     <span data-feather="users"></span>
-                    Admins
+                    Add Admins
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/manageAdmin') }}">
+                    <span data-feather="users"></span>
+                    Manage Admins
                 </a>
             </li>
         </ul>

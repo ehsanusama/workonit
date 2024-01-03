@@ -28,7 +28,7 @@
 
             <center>
 
-                <img src="{{ url('public/assest/logo.jpeg') }}" alt="" style="width: 250px" />
+                <img src="{{ url('assest/logo.jpeg') }}" alt="" style="width: 250px" />
 
             </center>
 
@@ -117,6 +117,14 @@
 
                                                 </div>
 
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="terms"
+                                                    name="terms" value="yes">
+                                                <label class="form-check-label" for="terms">
+                                                    Keep me updated with the latest news, deals, and more. I can, of
+                                                    course, opt out of these at any time.
+                                                </label>
                                             </div>
 
                                         </div>

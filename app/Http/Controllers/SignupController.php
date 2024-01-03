@@ -36,11 +36,14 @@ class SignupController extends Controller
             'name' => 'string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'string|min:6',
+            'terms' => 'required|max:255'
         ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'terms' => $request->terms,
+
         ]);
         // $data = ['name' => 'John Doe'];
         // Send the email

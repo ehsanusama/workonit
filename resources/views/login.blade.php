@@ -28,7 +28,7 @@
 
             <center>
 
-                <img src="{{ url('public/assest/logo.jpeg') }}" alt="" style="width: 250px" />
+                <img src="{{ url('assest/logo.jpeg') }}" alt="" style="width: 250px" />
 
             </center>
 

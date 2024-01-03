@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\manageAdminController;
 use App\Http\Controllers\manageChatbot;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/addChatbot', [addChatbot::class, "store"]);
     Route::get('/editChatbot/{id}', [addChatbot::class, "edit"]);
     Route::put('/addChatbot/{id}', [addChatbot::class, "update"]);
+    Route::get('/addAdmin', [manageAdminController::class, 'create']);
+    Route::post('/addAdmin', [manageAdminController::class, "store"]);
+    Route::get('/manageAdmin', [manageAdminController::class, 'index']);
+    Route::get('/manageAdmin/delete/{id}', [manageAdminController::class, 'destroy']);
+    Route::get('/editAdmin/{id}', [manageAdminController::class, "edit"]);
+    Route::put('/manageAdmin/{id}', [manageAdminController::class, "update"]);
 });
 
 Route::get('/groups/{id}', [GroupController::class, 'getById']);
