@@ -1,14 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.72.0">
-    <title>Dashboard Template</title>
-    <link rel="stylesheet" href="{{ url('assest/admin.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -19,53 +14,44 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
-
+    <title>Login Form</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Workonit Ai </a>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            @include('sidebar')
-
-            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <div
-                    class="d-flex justify-content-between flex-md-nowrap align-items-center border-bottom mb-3 flex-wrap pb-2 pt-3">
-                    <h1 class="h2">Dashboard</h1>
-                    <div class="btn-toolbar mb-md-0 mb-2">
-                        <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                        </div>
-                        
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ url('/admin') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="username" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-            </main>
+            </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-eA2A+pJg+uvOv8nhX9Kee9J4lI01PVOzgFZiL18NnxgZeCwo94uXw8do0bd4D21e" crossorigin="anonymous">
+    </script>
+    @include('sweetalert::alert')
 
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-DBjhmceckmzwrnMMrjI7BvG2FmRuxQVaTfFYHgfnrdfqMhxKt445b7j3KBQLolRl" crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
-        integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-        integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI" crossorigin="anonymous">
-    </script>
-    <script src="dashboard.js"></script>
 </body>
 
 </html>

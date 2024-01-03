@@ -28,7 +28,7 @@
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Workonit Ai </a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" href="{{ url('/logout') }}">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -68,7 +68,11 @@
                                 <td>{{ $form->description }}</td>
                                 <td><a href="{{ url('/manageChatbot/delete/' . $form->id) }}"
                                         class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</a></td>
+                                        onclick="return confirm('Are you sure?')">Delete</a>
+                                    <a href="{{ url('/editChatbot/' . $form->id) }}"
+                                        class="btn btn-info btn-sm">Edit</a>
+
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

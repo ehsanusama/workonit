@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -27,8 +28,18 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('/manageChatbot')->with('success', 'Loging...');
+        }
+
+        return redirect('admin')->with('error', 'Invalid credentials');
     }
+
 
     /**
      * Display the specified resource.

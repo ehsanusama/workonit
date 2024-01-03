@@ -36,13 +36,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/chatbot', [ChatbotController::class, "index"]);
 });
 
+Route::get('/admin', [AdminController::class, "index"]);
+Route::post('/admin', [AdminController::class, "store"]);
 
 Route::group(['middleware' => 'admin'], function () {
-    Route::get('/admin', [AdminController::class, "index"]);
     Route::get('/manageChatbot', [manageChatbot::class, "index"]);
     Route::get('/manageChatbot/delete/{id}', [manageChatbot::class, 'destroy']);
     Route::get('/addChatbot', [addChatbot::class, "index"]);
     Route::post('/addChatbot', [addChatbot::class, "store"]);
+    Route::get('/editChatbot/{id}', [addChatbot::class, "edit"]);
+    Route::put('/addChatbot/{id}', [addChatbot::class, "update"]);
 });
 
 Route::get('/groups/{id}', [GroupController::class, 'getById']);

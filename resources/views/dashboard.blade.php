@@ -22,9 +22,7 @@
             <div class="header">
                 <div class="user-img">
 
-                    <li style="list-style: none"><a href="{{ url('/logout') }}" style="color: red;margin-top: -6px;"> <i
-                                class="fa fa-power-off" aria-hidden="true"> </i>
-                        </a> </li>
+
                     {{-- <img class="dp" src="https://www.codewithfaraz.com/InstaPic.png" alt=""> --}}
 
 
@@ -33,6 +31,11 @@
                     {{-- <li><i class="fa-solid fa-users"></i></li>
                     <li><i class="fa-solid fa-message">
                     </i></li> --}}
+                    <li><a href="{{ url('/logout') }}"
+                            style="color: red;margin-top: -6px; text-decoration: none !important;
+                        ">
+                            <i class="fa fa-power-off" aria-hidden="true"> </i> Logout
+                        </a> </li>
 
                 </div>
             </div>

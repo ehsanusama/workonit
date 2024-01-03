@@ -28,7 +28,7 @@
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Workonit Ai </a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" href="{{ url('/logout') }}">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -43,8 +43,14 @@
                     <h1 class="h2">Dashboard</h1>
 
                 </div>
-                <form method="post" action="{{ url('/addChatbot') }}" class="row" enctype="multipart/form-data">
+
+                <form method="post" action="{{ url('/addChatbot/' . ($form->id ?? '')) }}" class="row"
+                    enctype="multipart/form-data">
                     @csrf
+                    @if (isset($form->id))
+                        @method('PUT')
+                    @endif
+                    <input type="hidden" name="_method" value="{{ isset($form->id) ? 'PUT' : 'POST' }}">
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <center>
@@ -55,23 +61,27 @@
                     <div class="row mt-2">
                         <div class="form-group col-md-6">
                             <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ @$form->name }}">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="slogan">Short Description:</label>
-                            <input type="text" class="form-control" id="slogan" name="slogan">
+                            <input type="text" class="form-control" id="slogan" name="slogan"
+                                value="{{ @$form->slogan }}">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="link">Link:</label>
-                            <textarea class="form-control" id="link" name="link" rows="1"></textarea>
+                            <textarea class="form-control" id="link" name="link" rows="1">{{ @$form->link }}</textarea>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="description">Long Description:</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3">{{ @$form->description }}</textarea>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block mt-2">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-block mt-2">
+                                {{ isset($form->id) ? 'Update' : 'Submit' }}
+                            </button>
                         </div>
                     </div>
 

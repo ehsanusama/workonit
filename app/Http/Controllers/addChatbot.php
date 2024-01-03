@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Chatbots;
+use Illuminate\Support\Facades\Storage;
 
 class addChatbot extends Controller
 {
@@ -71,7 +72,8 @@ class addChatbot extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $form = Chatbots::findOrFail($id);
+        return view('addChatbot', compact('form'));
     }
 
     /**
@@ -79,8 +81,43 @@ class addChatbot extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'slogan' => 'required|string|max:255',
+            'link' => 'required|string|between:10,600',
+            'description' => 'string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            // Ensure that the file is valid and not empty
+            if ($image->isValid()) {
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                // Store the image in the storage/app/public/images directory
+                $image->storeAs('public/images', $imageName);
+                // Update the $validatedData array with the new image name
+                $validatedData['image'] = $imageName;
+
+                // If there was an existing image, delete it
+                $existingImage = Chatbots::findOrFail($id)->image;
+                if ($existingImage) {
+                    Storage::delete('public/images/' . $existingImage);
+                }
+            } else {
+                // Handle invalid or empty file
+                return redirect("/editChatbot/{$id}")->with('error', 'Invalid or empty image file.');
+            }
+        }
+
+        // Find and update the existing form entry in the database
+        $chatbot = Chatbots::findOrFail($id);
+        $chatbot->update($validatedData);
+
+        return redirect("/editChatbot/{$id}")->with('success', 'Form updated successfully!');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
