@@ -21,28 +21,32 @@
             <!--header -->
             <div class="header">
                 <div class="user-img">
-                    <img class="dp" src="https://www.codewithfaraz.com/InstaPic.png" alt="">
+
+                    <li style="list-style: none"><a href="{{ url('/logout') }}" style="color: red;margin-top: -6px;"> <i
+                                class="fa fa-power-off" aria-hidden="true"> </i>
+                        </a> </li>
+                    {{-- <img class="dp" src="https://www.codewithfaraz.com/InstaPic.png" alt=""> --}}
+
+
                 </div>
                 <div class="nav-icons">
-                    <li><i class="fa-solid fa-users"></i></li>
+                    {{-- <li><i class="fa-solid fa-users"></i></li>
                     <li><i class="fa-solid fa-message">
-                        </i></li>
-                    <li><a href="{{ url('/logout') }}" style="color: red;margin-top: -6px;"> <i class="fa fa-power-off"
-                                aria-hidden="true"></i>
-                        </a></li>
+                    </i></li> --}}
+
                 </div>
             </div>
 
 
             <!--notification -->
-            <div class="notif-box">
+            {{-- <div class="notif-box">
                 <i class="fa-solid fa-bell-slash"></i>
                 <div class="notif-text">
                     <p>Get Notified of New Messages</p>
                     <a href="#">Turn on Desktop Notifications ›</a>
                 </div>
                 <i class="fa-solid fa-xmark"></i>
-            </div>
+            </div> --}}
 
             <!--search-container -->
             <div class="search-container">
@@ -58,11 +62,14 @@
             <div class="chat-list myDiv" id="myDiv">
 
                 @foreach ($threads as $data)
-                    <div class="chat-box" title="{{ $data->link }}">
+                    <div class="chat-box" title="{{ $data->title }}">
                         <div class="img-box">
-                            <img class="img-cover" src="{{ asset('storage/images/' . $data->image) }}" alt="">
+                            <img class="img-cover" src="{{ asset('storage/images/' . $data->image) }}"
+                                title="{{ $data->image }}" alt="">
                         </div>
                         <div class="chat-details">
+                            <img class="img-cover" src="{{ asset('storage/images/' . $data->image) }}"
+                                title="{{ $data->image }}" alt="" style="display: none">
                             <div class="text-head">
                                 <h4>{{ $data->name }}</h4>
                                 {{-- <p class="time unread">11:49</p> --}}
@@ -84,7 +91,7 @@
             <div class="header clear_content">
                 <div class="img-text">
                     <div class="user-img user-pic" style="display: none">
-                        <img class="dp"
+                        <img class="dp dp-images"
                             src="https://images.pexels.com/photos/2474307/pexels-photo-2474307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="">
                     </div>
@@ -133,7 +140,10 @@
                     }
                     $("#embed_chatbot_container_id").html('');
                     var txt = $(this).find('.chat-details').find(".text-head").find('h4').text()
+                    var img = $(this).find('.chat-details').find(".img-cover").attr('src');
                     console.log(txt)
+                    console.log(img)
+                    $(".dp-images").attr('src', img)
                     $("#heading-text").html(txt)
                     $('.user-pic').show()
                     // $("#script_load").attr('src', 'chatbot.blade.php')
