@@ -28,6 +28,8 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, "index"]);
 Route::post('/login', [LoginController::class, "store"])->name("login");
+Route::get('/terms', [LoginController::class, "terms"]);
+Route::get('/privacyPolicy', [LoginController::class, "privacy"]);
 Route::get('/signup', [SignupController::class, "index"]);
 Route::post('/signup', [SignupController::class, "store"]);
 Route::get('/logout', [DashboardController::class, "logout"]);

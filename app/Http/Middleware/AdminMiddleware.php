@@ -11,7 +11,7 @@ class AdminMiddleware
     {
         $allowedAdmins = ['usamaa.ehsan@gmail.com']; // Add your admin usernames or emails
 
-        if (Auth::check() && in_array(Auth::user()->email, $allowedAdmins)) {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 

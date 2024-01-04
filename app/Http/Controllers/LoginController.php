@@ -19,9 +19,13 @@ class LoginController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function terms()
     {
-        //
+        return view("terms");
+    }
+    public function privacy()
+    {
+        return view("privacyPolicy");
     }
 
     /**

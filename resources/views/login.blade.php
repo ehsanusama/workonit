@@ -276,7 +276,10 @@
                                 </form>
 
                             </div>
-
+                            <center>
+                                <a href="{{ url('/privacyPolicy') }}">Privacy Policy</a>
+                                <a href="{{ url('/terms') }}" style="margin-left:2% ">Terms and Conditions</a>
+                            </center>
                         </div>
 
                     </div>
